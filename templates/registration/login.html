@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}ورود{% endblock %}
+
+{% block content %}
+<section class="card">
+  <h1 class="title">ورود</h1>
+  <p class="subtitle">نام کاربری و رمز عبور را وارد کنید.</p>
+
+  {% if form.errors %}
+    <div class="alert alert-error">
+      نام کاربری یا رمز عبور اشتباه است.
+    </div>
+  {% endif %}
+
+  <form id="loginForm" method="post" action="{% url 'login' %}" novalidate>
+    {% csrf_token %}
+
+    <div class="form-grid">
+      <div class="field">
+        <label class="label" for="id_username">نام کاربری</label>
+        <input type="text" name="username" id="id_username" autocomplete="username" required>
+      </div>
+
+      <div class="field">
+        <label class="label" for="id_password">رمز عبور</label>
+        <input type="password" name="password" id="id_password" autocomplete="current-password" required>
+      </div>
+    </div>
+
+    <button class="btn" type="submit">
+      <span class="btn-text">ورود</span>
+      <span class="spinner" aria-hidden="true"></span>
+    </button>
+
+    <p class="muted">
+      حساب ندارید؟
+      <a class="link" href="{% url 'users:signup' %}">ثبت‌نام</a>
+    </p>
+  </form>
+</section>
+
+<script src="{% static 'users/js/login.js' %}"></script>
+{% endblock %}

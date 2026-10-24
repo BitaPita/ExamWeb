@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}ایمیل ارسال شد{% endblock %}
+{% block content %}
+<section class="card">
+  <h1 class="title">لینک فعال‌سازی ارسال شد ✅</h1>
+  <p class="subtitle">ایمیلت را چک کن (Inbox و Spam). بعد از فعال‌سازی می‌تونی وارد بشی.</p>
+  <a class="btn" href="{% url 'login' %}">رفتن به ورود</a>
+</section>
+{% endblock %}

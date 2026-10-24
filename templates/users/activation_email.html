@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<body>
+  <p>سلام {{ user.username }}،</p>
+  <p>برای فعال‌سازی حساب روی لینک زیر کلیک کنید:</p>
+  <p>
+    <a href="http://{{ domain }}{% url 'users:activate' uidb64=uid token=token %}">
+      فعال‌سازی حساب
+    </a>
+  </p>
+</body>
+</html>

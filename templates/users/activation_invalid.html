@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}لینک نامعتبر{% endblock %}
+{% block content %}
+<section class="card">
+  <h1 class="title">لینک فعال‌سازی نامعتبر است ❌</h1>
+  <p class="subtitle">ممکن است لینک منقضی شده باشد یا قبلاً استفاده شده باشد.</p>
+  <a class="btn" href="{% url 'users:signup' %}">ثبت‌نام دوباره</a>
+</section>
+{% endblock %}

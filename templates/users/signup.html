@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}ثبت‌نام{% endblock %}
+
+{% block content %}
+<section class="card">
+  <h1 class="title">ثبت‌نام</h1>
+  <p class="subtitle">اطلاعات را وارد کنید تا لینک فعال‌سازی به ایمیل شما ارسال شود.</p>
+
+  {% if form.non_field_errors %}
+    <div class="alert alert-error">{{ form.non_field_errors }}</div>
+  {% endif %}
+
+  <form id="signupForm" method="post" novalidate>
+    {% csrf_token %}
+
+    <div class="form-grid">
+      {% for field in form %}
+        <div class="field">
+          <label class="label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+          {{ field }}
+          {% if field.errors %}<div class="error">{{ field.errors }}</div>{% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <button class="btn" type="submit">
+      <span class="btn-text">ثبت‌نام</span>
+      <span class="spinner" aria-hidden="true"></span>
+    </button>
+
+    <p class="muted">
+      حساب دارید؟
+      <a class="link" href="{% url 'login' %}">ورود</a>
+    </p>
+  </form>
+</section>
+
+<script src="{% static 'users/js/signup.js' %}"></script>
+{% endblock %}
